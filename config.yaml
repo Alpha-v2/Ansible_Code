@@ -1,5 +1,6 @@
 ---
-- hosts: [NGINX]
+- name: nginx
+  hosts: [NGINX]
   become: true
   become_method: sudo
   include_tasks:
@@ -8,9 +9,9 @@
      notify: service1
 
 
----
 
-- hosts: [Apache]
+- name: Apache
+  hosts: [Apache]
   become: true
   become_method: sudo
   include_tasks:
@@ -19,7 +20,6 @@
      notify: service2
 
 
----
 # handlers file
 - name: service1
   service: name=nginx state=started
