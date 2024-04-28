@@ -3,7 +3,7 @@
   hosts: [NGINX]
   become: true
   become_method: sudo
-  include_tasks:
+  tasks:
    - name: Install nginx
      apt: name=nginx state=latest
      notify: service1
@@ -14,7 +14,7 @@
   hosts: [Apache]
   become: true
   become_method: sudo
-  include_tasks:
+  tasks:
    - name: Install Apache
      apt: name=apache2 state=latest
      notify: service2
